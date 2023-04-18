@@ -8,11 +8,13 @@
   <base href="/">
 
   <style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
     html,
     body {
       margin: 0;
       padding: 0;
-      font-family: sans-serif;
+      /* font-family: 'Anton', sans-serif; */
       background-color: #ededed;
     }
   </style>
@@ -20,15 +22,16 @@
 </head>
 
 <body>
-  <!-- <weekly-planner></weekly-planner> -->
-  <week-element>
-    <weekly-planner-icon></weekly-planner-icon>
-  </week-element>
+  <weekly-planner-element></weekly-planner-element>
+  <weekly-planner-element plannerCounter="2"></weekly-planner-element>
+  <weekly-planner-element plannerCounter="3"></weekly-planner-element>
+  <weekly-planner-element plannerCounter="4"></weekly-planner-element>
+  <weekly-planner-element plannerCounter="5"></weekly-planner-element>
 
 
   <script type="module" src="./src/weekly-planner.js"></script>
-  <script type="module" src="./src/week-element.js"></script>
   <script type="module" src="./src/weekly-planner-icon.js"></script>
+  <script type="module" src="./src/weekly-planner-element.js"></script>
 </body>
 
 </html>
