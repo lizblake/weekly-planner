@@ -9,7 +9,10 @@ class WeeklyPlannerElement extends LitElement {
     plannerCounter: { type: Number },
     plannerTitle: { type: String },
     plannerDescription: { type: String },
-    plannerIcon: { type: String },
+    plannerTimeIcon: { type: String },
+    plannerObjectivesIcon: { type: String },
+    plannerTimeCounter: { type: String },
+    plannerObjectivesCounter: { type: String },
     plannerIconColor: { type: String },
   };
 
@@ -25,6 +28,7 @@ class WeeklyPlannerElement extends LitElement {
 
     .plannerContainer {
       display: flex;
+      margin: 10px;
     }
 
     .plannerLabel {
@@ -50,10 +54,15 @@ class WeeklyPlannerElement extends LitElement {
     }
 
     .plannerTitle {
-      padding-top: 10px;
-      padding-bottom: 10px;
+      padding: 10px 0px 10px 0px;
       font-size: 24px;
-      font-weight: 200;
+      font-weight: 100;
+    }
+
+    .plannerDescription {
+      margin: 0px 0px 10px 0px;
+      font-size: 16px;
+      font-weight: 300;
     }
 
     .iconContainer {
@@ -63,7 +72,7 @@ class WeeklyPlannerElement extends LitElement {
       border-radius: 50%;
       display: inline-block;
       padding: 5px;
-      margin: 10px;
+      margin: 0px 5px 0px 0px;
       text-align: center;
     }
 
@@ -74,6 +83,10 @@ class WeeklyPlannerElement extends LitElement {
     .objectives {
       background: linear-gradient(0.25turn, #45C9B4,#3BB3D5);
     }
+
+    simple-icon {
+      --simple-icon-color: white;
+    }
   
   `;
 
@@ -82,14 +95,11 @@ class WeeklyPlannerElement extends LitElement {
     this.plannerLabel = "Week";
     this.plannerCounter = "1";
     this.plannerTitle = "Misconceptions about happiness";
-    this.plannerDescription =
-      "In this module, you will learn what it means to be happy and why pursuing happiness is not a pointless endeavor. Dr. Santos addresses how our minds lie to us and how the science shows that our misconceptions about money, grades, and social media are holding us back from implementing the techniques studied in positive psychology.";
-    this.plannerIcon = "perm-identity";
+    this.plannerTimeIcon = "perm-identity";
+    this.plannerObjectivesIcon = "perm-identity";
     this.plannerIconColor = "white";
-    this.plannerTimeCounter = "2";
-    this.plannerVideoCounter = "9";
-    this.plannerIconTimeLabel = "hours to complete";
-    this.plannerIconObjectivesLabel = "videos";
+    this.plannerTimeCounter = "2 hours to complete";
+    this.plannerObjectivesCounter = "9 videos (Total 55 min), 3 readings, 1 quiz";
   }
 
   render() {
@@ -106,22 +116,22 @@ class WeeklyPlannerElement extends LitElement {
 
         <span class="iconContainer video">
         <simple-icon
-            accent-color="${this.plannerIconColor}"
-            icon="${this.plannerIcon}"
+            icon="${this.plannerTimeIcon}"
+            style="--simple-icon-color:${this.plannerIconColor};"
           ></simple-icon></span>  
           
-          <span>${this.plannerTimeCounter} ${this.plannerIconTimeLabel}</span>
+          <span>${this.plannerTimeCounter}</span>
 
           <div class="plannerTitle">${this.plannerTitle}</div>
 
-          <div class="plannerDescription">${this.plannerDescription}</div>
+          <div class="plannerDescription"><slot name="plannerText"></slot></div>
 
           <span class="iconContainer objectives">
           <simple-icon
-            accent-color="${this.plannerIconColor}"
-            icon="${this.plannerIcon}"
+            style="--simple-icon-color:${this.plannerIconColor};"
+            icon="${this.plannerObjectivesIcon}"
           ></simple-icon></span>
-          <span>${this.plannerVideoCounter} ${this.plannerIconObjectivesLabel}</span>
+          <span>${this.plannerObjectivesCounter}</span>
         
         </div>
       
