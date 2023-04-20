@@ -1,6 +1,8 @@
 import { LitElement, html, css } from "lit";
 import "@lrnwebcomponents/simple-icon/simple-icon.js";
 import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
+import "@lrnwebcomponents/a11y-collapse/a11y-collapse.js";
+import "@lrnwebcomponents/a11y-collapse/lib/a11y-collapse-group.js";
 
 
 class WeeklyPlannerElement extends LitElement {
@@ -14,16 +16,20 @@ class WeeklyPlannerElement extends LitElement {
     plannerTimeCounter: { type: String },
     plannerObjectivesCounter: { type: String },
     plannerIconColor: { type: String },
+    openDetails: {type: Boolean, reflect: true},
+    toggleText: { type: String },
   };
 
   static styles = css`
   @import url('https://fonts.googleapis.com/css2?family=Anton&family=Source+Sans+Pro:wght@200&display=swap');
 
     :host {
-      font-size: 12px;
-      font-weight: 100px;
+      font-size: 16px;
+      font-weight: 100;
       font-family: 'Anton', sans-serif;
       font-family: 'Source Sans Pro', sans-serif;
+      --video-icon-background-color: linear-gradient(0.25turn,#FB814E,#F6B343);
+      --objectives-icon-background-color: linear-gradient(0.25turn, #45C9B4,#3BB3D5);
     }
 
     .plannerContainer {
@@ -51,15 +57,18 @@ class WeeklyPlannerElement extends LitElement {
     }
     .right {
       width: 75%;
+      border-bottom: 0.5px inset gray;
+      padding-bottom: 40px;
     }
 
     .plannerTitle {
-      padding: 10px 0px 10px 0px;
+      padding: 20px 0px 10px 0px;
       font-size: 24px;
       font-weight: 100;
     }
 
     .plannerDescription {
+      padding: 10px 0px 10px 0px;
       margin: 0px 0px 10px 0px;
       font-size: 16px;
       font-weight: 300;
@@ -77,15 +86,32 @@ class WeeklyPlannerElement extends LitElement {
     }
 
     .video {
-      background: linear-gradient(0.25turn,#FB814E,#F6B343);
+      background: var(--video-icon-background-color);
     }
 
     .objectives {
-      background: linear-gradient(0.25turn, #45C9B4,#3BB3D5);
+      background: var(--objectives-icon-background-color);
     }
+
+    .videoLabel{
+      font-weight: 400;
+    }
+    .objectivesLabel {
+      font-weight: 100;
+    }
+
+    .spacing {
+      margin: 0px 10px 0px 10px;
+    }
+
 
     simple-icon {
       --simple-icon-color: white;
+    }
+
+    a11y-collapse {
+      --a11y-collapse-border: none;
+      --a11y-collapse-padding-left: 0px;
     }
   
   `;
@@ -95,12 +121,21 @@ class WeeklyPlannerElement extends LitElement {
     this.plannerLabel = "Week";
     this.plannerCounter = "1";
     this.plannerTitle = "Misconceptions about happiness";
+    this.plannerDescription = "In this module, you will learn what it means to be happy and why pursuing happiness is not a pointless endeavor. Dr. Santos addresses how our minds lie to us and how the science shows that our misconceptions about money, grades, and social media are holding us back from implementing the techniques studied in positive psychology.";
     this.plannerTimeIcon = "perm-identity";
     this.plannerObjectivesIcon = "perm-identity";
     this.plannerIconColor = "white";
     this.plannerTimeCounter = "2 hours to complete";
     this.plannerObjectivesCounter = "9 videos (Total 55 min), 3 readings, 1 quiz";
+    this.toggleText = "See all";
   }
+
+  // toggleCollapse() {
+  //     const toggleTest = document.getElementById("testCall");
+  //     if (toggleTest.hasAttribute("expanded")) {
+  //       this.toggleText = "See less";
+  //     }
+  // }
 
   render() {
     return html`
@@ -120,19 +155,24 @@ class WeeklyPlannerElement extends LitElement {
             style="--simple-icon-color:${this.plannerIconColor};"
           ></simple-icon></span>  
           
-          <span>${this.plannerTimeCounter}</span>
+          <span class="videoLabel spacing">${this.plannerTimeCounter}</span>
 
           <div class="plannerTitle">${this.plannerTitle}</div>
 
-          <div class="plannerDescription"><slot name="plannerText"></slot></div>
+          <div class="plannerDescription"><slot name="plannerText">${this.plannerDescription}</slot></div>
 
-          <span class="iconContainer objectives">
-          <simple-icon
-            style="--simple-icon-color:${this.plannerIconColor};"
+          <a11y-collapse icon="none">
+            <div slot="heading">
+              <span class="iconContainer objectives">
+              <simple-icon style="--simple-icon-color:${this.plannerIconColor};"
             icon="${this.plannerObjectivesIcon}"
           ></simple-icon></span>
-          <span>${this.plannerObjectivesCounter}</span>
-        
+          <span class="objectivesLabel spacing">${this.plannerObjectivesCounter}</span>
+          <span class="accordianToggle">${this.toggleText}</span>
+            </div>
+          </a11y-collapse>
+
+          <!-- When a11y-collapse is sent to expanded true, change See all to See less-->
         </div>
       
       </div>
