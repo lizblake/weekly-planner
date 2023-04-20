@@ -111,6 +111,14 @@ class WeeklyPlannerElement extends LitElement {
       margin: 0px 10px 0px 10px;
     }
 
+    .accordianToggle {
+      color: blue;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
     simple-icon {
       --simple-icon-color: white;
     }
@@ -137,12 +145,14 @@ class WeeklyPlannerElement extends LitElement {
     this.toggleText = "See all";
   }
 
-  // toggleCollapse() {
-  //     const toggleTest = document.getElementById("testCall");
-  //     if (toggleTest.hasAttribute("expanded")) {
-  //       this.toggleText = "See less";
-  //     }
-  // }
+  __collapseStatusChange() {
+    const toggleTest = this.shadowRoot.querySelector("a11y-collapse");
+    if (toggleTest.hasAttribute("expanded")) {
+      this.toggleText = "See less";
+    } else {
+      this.toggleText = "See all";
+    }
+}
 
   render() {
     return html`
@@ -168,7 +178,7 @@ class WeeklyPlannerElement extends LitElement {
             <slot name="plannerText">${this.plannerDescription}</slot>
           </div>
 
-          <a11y-collapse icon="none">
+          <a11y-collapse icon="none" @expand="${this.__collapseStatusChange}" @collapse="${this.__collapseStatusChange}">
             <div slot="heading">
               <span class="iconContainer objectives">
                 <simple-icon
@@ -179,9 +189,8 @@ class WeeklyPlannerElement extends LitElement {
               <span class="objectivesLabel spacing"
                 >${this.plannerObjectivesCounter}</span
               >
-              <span class="accordianToggle">${this.toggleText}</span>
+              <span class="accordianToggle"><a>${this.toggleText}</a></span>
             </div>
-            <!-- make this a seperate element so I can just call that and modify it -->
             <div class="videoSegment">
               <h1>VIDEOS</h1>
               Our Minds Are Bad at Predicting Our Feelings6m Happiness Problem
@@ -212,9 +221,11 @@ class WeeklyPlannerElement extends LitElement {
               Problem #3: Our Attention Is Limited7m How Can We Deal with
               Limited Attention?5m
             </div>
-            </div>
-          </a11y-collapse>
+          
 
+            </a11y-collapse>
+            <!-- make this a seperate element so I can just call that and modify it -->
+            
           <!-- When a11y-collapse is sent to expanded true, change See all to See less-->
         </div>
       </div>
