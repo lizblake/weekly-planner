@@ -1,4 +1,5 @@
 import { LitElement, html, css } from "lit";
+import "./weekly-planner-objective";
 import "@lrnwebcomponents/simple-icon/simple-icon.js";
 import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
 import "@lrnwebcomponents/a11y-collapse/a11y-collapse.js";
@@ -25,7 +26,6 @@ class WeeklyPlannerElement extends LitElement {
     :host {
       font-size: 16px;
       font-weight: 100;
-      font-family: "Anton", sans-serif;
       font-family: "Source Sans Pro", sans-serif;
       --video-icon-background-color: linear-gradient(
         0.25turn,
@@ -105,6 +105,8 @@ class WeeklyPlannerElement extends LitElement {
     }
     .objectivesLabel {
       font-weight: 100;
+      font-family: "Source Sans Pro", sans-serif;
+      font-size: 16px;
     }
 
     .spacing {
@@ -113,6 +115,8 @@ class WeeklyPlannerElement extends LitElement {
 
     .accordianToggle {
       color: blue;
+      font-family: "Source Sans Pro", sans-serif;
+      font-size: 16px;
     }
 
     a {
@@ -127,6 +131,7 @@ class WeeklyPlannerElement extends LitElement {
       --a11y-collapse-border: none;
       --a11y-collapse-padding-left: 0px;
     }
+    
   `;
 
   constructor() {
@@ -146,13 +151,13 @@ class WeeklyPlannerElement extends LitElement {
   }
 
   __collapseStatusChange() {
-    const toggleTest = this.shadowRoot.querySelector("a11y-collapse");
-    if (toggleTest.hasAttribute("expanded")) {
+    const status = this.shadowRoot.querySelector("a11y-collapse");
+    if (status.hasAttribute("expanded")) {
       this.toggleText = "See less";
     } else {
       this.toggleText = "See all";
     }
-}
+  }
 
   render() {
     return html`
@@ -178,7 +183,12 @@ class WeeklyPlannerElement extends LitElement {
             <slot name="plannerText">${this.plannerDescription}</slot>
           </div>
 
-          <a11y-collapse icon="none" @expand="${this.__collapseStatusChange}" @collapse="${this.__collapseStatusChange}">
+          <a11y-collapse
+            heading-button
+            icon="none"
+            @expand="${this.__collapseStatusChange}"
+            @collapse="${this.__collapseStatusChange}"
+          >
             <div slot="heading">
               <span class="iconContainer objectives">
                 <simple-icon
@@ -189,44 +199,13 @@ class WeeklyPlannerElement extends LitElement {
               <span class="objectivesLabel spacing"
                 >${this.plannerObjectivesCounter}</span
               >
-              <span class="accordianToggle"><a>${this.toggleText}</a></span>
+            <a class="accordianToggle">${this.toggleText}</a>
             </div>
-            <div class="videoSegment">
-              <h1>VIDEOS</h1>
-              Our Minds Are Bad at Predicting Our Feelings6m Happiness Problem
-              #1: We Get Used to Stuff but Don't Know It10m How Can We Deal with
-              Hedonic Adaptation?7m Happiness Problem #2: We Compare Ourselves a
-              Lot3m Happiness Problem #2: We Compare Ourselves to Other
-              People10m How Can We Deal with Social Comparisons?2m Happiness
-              Problem #3: Our Attention Is Limited7m How Can We Deal with
-              Limited Attention?5m
-            </div>
-            <div class="readingsSegment">
-            <h1>READINGS</h1>
-              Our Minds Are Bad at Predicting Our Feelings6m Happiness Problem
-              #1: We Get Used to Stuff but Don't Know It10m How Can We Deal with
-              Hedonic Adaptation?7m Happiness Problem #2: We Compare Ourselves a
-              Lot3m Happiness Problem #2: We Compare Ourselves to Other
-              People10m How Can We Deal with Social Comparisons?2m Happiness
-              Problem #3: Our Attention Is Limited7m How Can We Deal with
-              Limited Attention?5m
-            </div>
-            <div class="practiceSegment">
-            <h1>PRACTICE</h1>
-              Our Minds Are Bad at Predicting Our Feelings6m Happiness Problem
-              #1: We Get Used to Stuff but Don't Know It10m How Can We Deal with
-              Hedonic Adaptation?7m Happiness Problem #2: We Compare Ourselves a
-              Lot3m Happiness Problem #2: We Compare Ourselves to Other
-              People10m How Can We Deal with Social Comparisons?2m Happiness
-              Problem #3: Our Attention Is Limited7m How Can We Deal with
-              Limited Attention?5m
-            </div>
-          
 
-            </a11y-collapse>
-            <!-- make this a seperate element so I can just call that and modify it -->
-            
-          <!-- When a11y-collapse is sent to expanded true, change See all to See less-->
+            <slot name="objectiveAccordian"></slot>
+             <!-- inside a11y-collapse -->
+           
+          </a11y-collapse>
         </div>
       </div>
     `;

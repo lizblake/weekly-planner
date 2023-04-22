@@ -14,23 +14,42 @@
     body {
       margin: 0;
       padding: 0;
-      /* font-family: 'Anton', sans-serif; */
+      font-family: "Source Sans Pro", sans-serif;
+      font-size: 16px;
       background-color: #ededed;
+    }
+
+    p {
+      padding: 5px;
     }
   </style>
   <title>weekly-planner</title>
 </head>
 
 <body>
-  <weekly-planner-element plannerTimeIcon="device:access-time" plannerObjectivesIcon="av:library-books"></weekly-planner-element>
+  <weekly-planner-element plannerTimeIcon="device:access-time" plannerObjectivesIcon="av:library-books">
+    <div slot="objectiveAccordian">
+      <weekly-planner-objective>
+        <div slot="objectiveText">
+          <p>Why Take Yale's Most Popular Course? 11m</p>
+          <p>What Does It Even Mean to Be Happy? 8m</p>
+          <p>Is Becoming Happier a Selfish Thing to Do? 5m</p>
+          <p>Do Life Circumstances Determine Happiness? 3m</p>
+        </div>
+      </weekly-planner-objective>
+    </div>
+  </weekly-planner-element>
   <weekly-planner-element plannerCounter="2" style="--video-icon-background-color:linear-gradient(0.25turn,pink,red);"></weekly-planner-element>
-  <weekly-planner-element plannerCounter="3"></weekly-planner-element>
-  <weekly-planner-element plannerCounter="4"></weekly-planner-element>
+  <weekly-planner-element plannerCounter="3"> 
+    <div slot="plannerText">
+    </div>
+  </weekly-planner-element>
+  <weekly-planner-element plannerCounter="4" plannerDescription="more information"></weekly-planner-element>
   <weekly-planner-element plannerCounter="5"></weekly-planner-element>
 
 
   <script type="module" src="./src/weekly-planner.js"></script>
-  <script type="module" src="./src/weekly-planner-icon.js"></script>
+  <script type="module" src="./src/weekly-planner-objective.js"></script>
   <script type="module" src="./src/weekly-planner-element.js"></script>
 </body>
 
