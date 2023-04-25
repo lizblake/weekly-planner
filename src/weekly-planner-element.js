@@ -7,16 +7,19 @@ import "@lrnwebcomponents/a11y-collapse/lib/a11y-collapse-group.js";
 
 class WeeklyPlannerElement extends LitElement {
   static properties = {
-    plannerLabel: { type: String },
-    plannerCounter: { type: Number },
-    plannerTitle: { type: String },
-    plannerDescription: { type: String },
-    plannerTimeIcon: { type: String },
-    plannerObjectivesIcon: { type: String },
-    plannerTimeCounter: { type: String },
-    plannerObjectivesCounter: { type: String },
-    plannerIconColor: { type: String },
-    openDetails: { type: Boolean, reflect: true },
+    // mutable
+    weekLabel: { type: String },
+    moduleTimeIcon: { type: String },
+    moduleObjectivesIcon: { type: String },
+    moduleIconColor: { type: String },
+    //api calls
+    weekCounter: { type: Number },
+    moduleTitle: { type: String },
+    moduleDescription: { type: String },
+    timeRemaining: { type: String },
+    objectivesTotal: { type: String },
+
+    //Toggle collapse label
     toggleText: { type: String },
   };
 
@@ -44,13 +47,13 @@ class WeeklyPlannerElement extends LitElement {
       margin: 10px;
     }
 
-    .plannerLabel {
+    .weekLabel {
       font-size: 16px;
       text-transform: uppercase;
       letter-spacing: 3px;
     }
 
-    .plannerCounter {
+    .weekCounter {
       padding: 10px;
       font-size: 40px;
     }
@@ -136,17 +139,22 @@ class WeeklyPlannerElement extends LitElement {
 
   constructor() {
     super();
-    this.plannerLabel = "Week";
-    this.plannerCounter = "1";
-    this.plannerTitle = "Misconceptions about happiness";
-    this.plannerDescription =
+    //mutable
+    this.weekLabel = "Week";
+    this.moduleTimeIcon = "device:access-time";
+    this.moduleObjectivesIcon = "av:library-books";
+    this.moduleIconColor = "white";
+    
+    //api calls
+    this.weekCounter = "1";
+    this.moduleTitle = "Misconceptions about happiness";
+    this.moduleDescription =
       "In this module, you will learn what it means to be happy and why pursuing happiness is not a pointless endeavor. Dr. Santos addresses how our minds lie to us and how the science shows that our misconceptions about money, grades, and social media are holding us back from implementing the techniques studied in positive psychology.";
-    this.plannerTimeIcon = "perm-identity";
-    this.plannerObjectivesIcon = "perm-identity";
-    this.plannerIconColor = "white";
-    this.plannerTimeCounter = "2 hours to complete";
-    this.plannerObjectivesCounter =
+    this.timeRemaining = "2 hours to complete";
+    this.objectivesTotal =
       "9 videos (Total 55 min), 3 readings, 1 quiz";
+    
+    //See all / See less toggle variable
     this.toggleText = "See all";
   }
 
@@ -163,24 +171,24 @@ class WeeklyPlannerElement extends LitElement {
     return html`
       <div class="plannerContainer">
         <div class="plannerColumn left">
-          <div class="plannerLabel">${this.plannerLabel}</div>
-          <div class="plannerCounter">${this.plannerCounter}</div>
+          <div class="weekLabel">${this.weekLabel}</div>
+          <div class="weekCounter">${this.weekCounter}</div>
         </div>
 
         <div class="plannerColumn right">
           <span class="iconContainer video">
             <simple-icon
-              icon="${this.plannerTimeIcon}"
-              style="--simple-icon-color:${this.plannerIconColor};"
+              icon="${this.moduleTimeIcon}"
+              style="--simple-icon-color:${this.moduleIconColor};"
             ></simple-icon
           ></span>
 
-          <span class="videoLabel spacing">${this.plannerTimeCounter}</span>
+          <span class="videoLabel spacing">${this.timeRemaining}</span>
 
-          <div class="plannerTitle">${this.plannerTitle}</div>
+          <div class="plannerTitle">${this.moduleTitle}</div>
 
           <div class="plannerDescription">
-            <slot name="plannerText">${this.plannerDescription}</slot>
+            <slot name="plannerText">${this.moduleDescription}</slot>
           </div>
 
           <a11y-collapse
@@ -192,12 +200,12 @@ class WeeklyPlannerElement extends LitElement {
             <div slot="heading">
               <span class="iconContainer objectives">
                 <simple-icon
-                  style="--simple-icon-color:${this.plannerIconColor};"
-                  icon="${this.plannerObjectivesIcon}"
+                  style="--simple-icon-color:${this.moduleIconColor};"
+                  icon="${this.moduleObjectivesIcon}"
                 ></simple-icon
               ></span>
               <span class="objectivesLabel spacing"
-                >${this.plannerObjectivesCounter}</span
+                >${this.objectivesTotal}</span
               >
             <a class="accordianToggle">${this.toggleText}</a>
             </div>

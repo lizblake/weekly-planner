@@ -27,7 +27,9 @@
 </head>
 
 <body>
-  <weekly-planner-element plannerTimeIcon="device:access-time" plannerObjectivesIcon="av:library-books">
+
+  <content-list></content-list>
+  <weekly-planner-element>
     <div slot="objectiveAccordian">
       <weekly-planner-objective>
         <div slot="objectiveText">
@@ -40,18 +42,22 @@
       <weekly-planner-objective></weekly-planner-objective>
     </div>
   </weekly-planner-element>
-  <weekly-planner-element plannerCounter="2" style="--video-icon-background-color:linear-gradient(0.25turn,pink,red);"></weekly-planner-element>
-  <weekly-planner-element plannerCounter="3"> 
+  <!-- <weekly-planner-element style="--video-icon-background-color:linear-gradient(0.25turn,pink,red);"></weekly-planner-element>
+  <weekly-planner-element> 
     <div slot="plannerText">
     </div>
   </weekly-planner-element>
-  <weekly-planner-element plannerCounter="4" plannerDescription="more information"></weekly-planner-element>
-  <weekly-planner-element plannerCounter="5"></weekly-planner-element>
+  <weekly-planner-element></weekly-planner-element>
+  <weekly-planner-element></weekly-planner-element> -->
 
 
-  <script type="module" src="./src/weekly-planner.js"></script>
-  <script type="module" src="./src/weekly-planner-objective.js"></script>
-  <script type="module" src="./src/weekly-planner-element.js"></script>
+
+  <script type="module">
+    import "./src/weekly-planner-element.js";
+    import "./src/content-list.js";
+    import "./src/weekly-planner-objective.js";
+  </script>
+
 </body>
 
 </html>

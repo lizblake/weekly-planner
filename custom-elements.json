@@ -4,6 +4,372 @@
   "modules": [
     {
       "kind": "javascript-module",
+      "path": "api/content.js",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "handler",
+          "parameters": [
+            {
+              "name": "request"
+            },
+            {
+              "name": "res"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "handler",
+            "module": "api/content.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/content-list.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ContentList",
+          "members": [
+            {
+              "kind": "field",
+              "name": "tag",
+              "static": true
+            },
+            {
+              "kind": "method",
+              "name": "updateWeek"
+            },
+            {
+              "kind": "field",
+              "name": "weeks",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]",
+              "privacy": "public",
+              "attribute": "weeks"
+            },
+            {
+              "kind": "field",
+              "name": "month",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"April\"",
+              "privacy": "public",
+              "attribute": "month"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "weeks",
+              "fieldName": "weeks"
+            },
+            {
+              "name": "month",
+              "fieldName": "month"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "content-list",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ContentList",
+          "declaration": {
+            "name": "ContentList",
+            "module": "src/content-list.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "content-list",
+          "declaration": {
+            "name": "ContentList",
+            "module": "src/content-list.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/weekly-planner-element.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "WeeklyPlannerElement",
+          "members": [
+            {
+              "kind": "method",
+              "name": "__collapseStatusChange"
+            },
+            {
+              "kind": "field",
+              "name": "weekLabel",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"Week\"",
+              "privacy": "public",
+              "attribute": "weekLabel"
+            },
+            {
+              "kind": "field",
+              "name": "moduleTimeIcon",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"device:access-time\"",
+              "privacy": "public",
+              "attribute": "moduleTimeIcon"
+            },
+            {
+              "kind": "field",
+              "name": "moduleObjectivesIcon",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"av:library-books\"",
+              "privacy": "public",
+              "attribute": "moduleObjectivesIcon"
+            },
+            {
+              "kind": "field",
+              "name": "moduleIconColor",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"white\"",
+              "privacy": "public",
+              "attribute": "moduleIconColor"
+            },
+            {
+              "kind": "field",
+              "name": "weekCounter",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"1\"",
+              "privacy": "public",
+              "attribute": "weekCounter"
+            },
+            {
+              "kind": "field",
+              "name": "moduleTitle",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"Misconceptions about happiness\"",
+              "privacy": "public",
+              "attribute": "moduleTitle"
+            },
+            {
+              "kind": "field",
+              "name": "moduleDescription",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"In this module, you will learn what it means to be happy and why pursuing happiness is not a pointless endeavor. Dr. Santos addresses how our minds lie to us and how the science shows that our misconceptions about money, grades, and social media are holding us back from implementing the techniques studied in positive psychology.\"",
+              "privacy": "public",
+              "attribute": "moduleDescription"
+            },
+            {
+              "kind": "field",
+              "name": "timeRemaining",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"2 hours to complete\"",
+              "privacy": "public",
+              "attribute": "timeRemaining"
+            },
+            {
+              "kind": "field",
+              "name": "objectivesTotal",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"9 videos (Total 55 min), 3 readings, 1 quiz\"",
+              "privacy": "public",
+              "attribute": "objectivesTotal"
+            },
+            {
+              "kind": "field",
+              "name": "toggleText",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"See all\"",
+              "privacy": "public",
+              "attribute": "toggleText"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "weekLabel",
+              "fieldName": "weekLabel"
+            },
+            {
+              "name": "moduleTimeIcon",
+              "fieldName": "moduleTimeIcon"
+            },
+            {
+              "name": "moduleObjectivesIcon",
+              "fieldName": "moduleObjectivesIcon"
+            },
+            {
+              "name": "moduleIconColor",
+              "fieldName": "moduleIconColor"
+            },
+            {
+              "name": "weekCounter",
+              "fieldName": "weekCounter"
+            },
+            {
+              "name": "moduleTitle",
+              "fieldName": "moduleTitle"
+            },
+            {
+              "name": "moduleDescription",
+              "fieldName": "moduleDescription"
+            },
+            {
+              "name": "timeRemaining",
+              "fieldName": "timeRemaining"
+            },
+            {
+              "name": "objectivesTotal",
+              "fieldName": "objectivesTotal"
+            },
+            {
+              "name": "toggleText",
+              "fieldName": "toggleText"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "weekly-planner-element",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "weekly-planner-element",
+          "declaration": {
+            "name": "WeeklyPlannerElement",
+            "module": "src/weekly-planner-element.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/weekly-planner-objective.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "WeeklyPlannerObjective",
+          "members": [
+            {
+              "kind": "field",
+              "name": "objectiveCounter",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"7 videos\"",
+              "privacy": "public",
+              "attribute": "objectiveCounter"
+            },
+            {
+              "kind": "field",
+              "name": "objectiveIcon",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"perm-identity\"",
+              "privacy": "public",
+              "attribute": "objectiveIcon"
+            },
+            {
+              "kind": "field",
+              "name": "objectiveIconColor",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"blue\"",
+              "privacy": "public",
+              "attribute": "objectiveIconColor"
+            },
+            {
+              "kind": "field",
+              "name": "objectiveDetails",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"Why Take Yale's Most Popular Course? 11m\"",
+              "privacy": "public",
+              "attribute": "objectiveDetails"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "objectiveIcon",
+              "fieldName": "objectiveIcon"
+            },
+            {
+              "name": "objectiveIconColor",
+              "fieldName": "objectiveIconColor"
+            },
+            {
+              "name": "objectiveCounter",
+              "fieldName": "objectiveCounter"
+            },
+            {
+              "name": "objectiveDetails",
+              "fieldName": "objectiveDetails"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "weekly-planner-objective",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "weekly-planner-objective",
+          "declaration": {
+            "name": "WeeklyPlannerObjective",
+            "module": "src/weekly-planner-objective.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/weekly-planner.js",
       "declarations": [
         {
