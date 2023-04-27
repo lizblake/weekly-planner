@@ -76,12 +76,11 @@ export class ContentList extends LitElement {
                   objectivesTotal="${week.objectives}"
                 >
                 <div slot="objectiveAccordian">
-
                   <weekly-planner-objective objectiveTitle="${this.videosTitle}"></weekly-planner-objective>
                   <weekly-planner-objective objectiveTitle="${this.readingsTitle}"></weekly-planner-objective>
                   <weekly-planner-objective objectiveTitle="${this.quizzesTitle}"></weekly-planner-objective>
-
                 </div>
+                
               </weekly-planner-element>
             `)}
     `;
