@@ -6,44 +6,6 @@ export default async function handler(request, res) {
             "description": "Why take this course?",
             "time" : "2 hours to complete",
             "objectives" : "4 videos (Total 13 min), 11 readings",
-            "videos": [
-                {
-                    "title": "Course Introduction: Welcome to Developing Back-End Apps with Node.js & Express",
-                    "duration": 3
-                },
-                {
-                    "title": "What is Back End Development?",
-                    "duration": 7
-                },
-                {
-                    "title": "Introduction to Node.js",
-                    "duration": 3
-                },
-                {
-                    "title": "Expert Viewpoints: Introductory Thoughts on Server-Side JavaScript and Node.js",
-                    "duration": 5
-                },
-            ],
-            "readings": [
-                {
-                    "title": "Welcome",
-                    "duration": 2
-                },
-                {
-                    "title": "Module Summary",
-                    "duration": 2
-                }
-            ],
-            "quizzes": [
-                {
-                    "title": "Practice Weeks",
-                    "duration": 16
-                },
-                {
-                    "title": "Graded Quiz",
-                    "duration": 20
-                }
-            ]
         },
         {
             "counter": "",

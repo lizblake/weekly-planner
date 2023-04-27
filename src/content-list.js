@@ -77,7 +77,7 @@ export class ContentList extends LitElement {
                 >
                 <div slot="objectiveAccordian">
 
-                  <!-- <weekly-planner-objective objectiveTitle="${this.week.videos.title}"></weekly-planner-objective> -->
+                  <weekly-planner-objective objectiveTitle="${this.videosTitle}"></weekly-planner-objective>
                   <weekly-planner-objective objectiveTitle="${this.readingsTitle}"></weekly-planner-objective>
                   <weekly-planner-objective objectiveTitle="${this.quizzesTitle}"></weekly-planner-objective>
 

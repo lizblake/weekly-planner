@@ -116,7 +116,7 @@
               "type": {
                 "text": "string"
               },
-              "default": "\"Videos\""
+              "default": "\"7 videos\""
             },
             {
               "kind": "field",
@@ -124,7 +124,7 @@
               "type": {
                 "text": "string"
               },
-              "default": "\"Readings\""
+              "default": "\"7 readings\""
             },
             {
               "kind": "field",
@@ -132,7 +132,7 @@
               "type": {
                 "text": "string"
               },
-              "default": "\"Quizzes\""
+              "default": "\"7 quizzes\""
             },
             {
               "kind": "field",
