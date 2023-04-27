@@ -1,5 +1,7 @@
 import { LitElement, html, css } from "lit";
 import "./weekly-planner-element";
+import "./weekly-planner-objective";
+import "@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js";
 
 export class ContentList extends LitElement {
   static get tag() {
@@ -9,6 +11,7 @@ export class ContentList extends LitElement {
     return {
       weeks: { type: Array },
       month: { type: String },
+      testText: { type: String},
     };
   }
 
@@ -22,6 +25,9 @@ export class ContentList extends LitElement {
     this.weeks = [];
     this.counter = 0;
     this.month = "April";
+    this.videosTitle = "Videos";
+    this.readingsTitle = "Readings";
+    this.quizzesTitle = "Quizzes";
     this.updateWeek();
   }
 
@@ -58,6 +64,11 @@ export class ContentList extends LitElement {
                   timeRemaining="${week.time}"
                   objectivesTotal="${week.objectives}"
                 >
+                <div slot="objectiveAccordian">
+                  <weekly-planner-objective objectiveTitle="${this.videosTitle}"></weekly-planner-objective>
+                  <weekly-planner-objective objectiveTitle="${this.readingsTitle}"></weekly-planner-objective>
+                  <weekly-planner-objective objectiveTitle="${this.quizzesTitle}"></weekly-planner-objective>
+                </div>
               </weekly-planner-element>
             `)}
     `;

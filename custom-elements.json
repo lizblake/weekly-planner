@@ -79,6 +79,16 @@
               "default": "\"April\"",
               "privacy": "public",
               "attribute": "month"
+            },
+            {
+              "kind": "field",
+              "name": "testText",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"TEST\"",
+              "privacy": "public",
+              "attribute": "testText"
             }
           ],
           "attributes": [
@@ -89,6 +99,10 @@
             {
               "name": "month",
               "fieldName": "month"
+            },
+            {
+              "name": "testText",
+              "fieldName": "testText"
             }
           ],
           "superclass": {
@@ -304,13 +318,13 @@
           "members": [
             {
               "kind": "field",
-              "name": "objectiveCounter",
+              "name": "objectiveTitle",
               "type": {
                 "text": "string"
               },
               "default": "\"7 videos\"",
               "privacy": "public",
-              "attribute": "objectiveCounter"
+              "attribute": "objectiveTitle"
             },
             {
               "kind": "field",
@@ -353,8 +367,8 @@
               "fieldName": "objectiveIconColor"
             },
             {
-              "name": "objectiveCounter",
-              "fieldName": "objectiveCounter"
+              "name": "objectiveTitle",
+              "fieldName": "objectiveTitle"
             },
             {
               "name": "objectiveDetails",

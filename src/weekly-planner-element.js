@@ -4,7 +4,6 @@ import "@lrnwebcomponents/simple-icon/simple-icon.js";
 import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
 import "@lrnwebcomponents/a11y-collapse/a11y-collapse.js";
 import "@lrnwebcomponents/a11y-collapse/lib/a11y-collapse-group.js";
-import "@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js";
 
 class WeeklyPlannerElement extends LitElement {
   static properties = {

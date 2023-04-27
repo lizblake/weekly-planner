@@ -8,7 +8,7 @@ class WeeklyPlannerObjective extends LitElement {
   static properties = {
     objectiveIcon: { type: String },
     objectiveIconColor: { type: String },
-    objectiveCounter: { type: String },
+    objectiveTitle: { type: String },
     objectiveDetails: { type: String },
   };
 
@@ -50,7 +50,7 @@ class WeeklyPlannerObjective extends LitElement {
 
   constructor() {
     super();
-    this.objectiveCounter = "7 videos";
+    this.objectiveTitle = "7 videos";
     this.objectiveIcon = "perm-identity";
     this.objectiveIconColor = "blue";
     this.objectiveDetails = "Why Take Yale's Most Popular Course? 11m";
@@ -65,7 +65,7 @@ class WeeklyPlannerObjective extends LitElement {
             style="--simple-icon-color:${this.objectiveIconColor};"
           ></simple-icon
         ></span>
-        <span class="objectiveLabel">${this.objectiveCounter}</span>
+        <span class="objectiveLabel">${this.objectiveTitle}</span>
         <div class="objectiveDetails">
           <slot name="objectiveText">${this.objectiveDetails}</slot>
         </div>
