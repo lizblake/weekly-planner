@@ -57,7 +57,8 @@ export class ContentList extends LitElement {
                   moduleDescription="${week.description}"
                   timeRemaining="${week.time}"
                   objectivesTotal="${week.objectives}"
-                ></weekly-planner-element>
+                >
+              </weekly-planner-element>
             `)}
     `;
   }
