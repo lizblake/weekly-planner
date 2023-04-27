@@ -10,6 +10,9 @@ export class ContentList extends LitElement {
   static get properties() {
     return {
       weeks: { type: Array },
+      videos: { type: Array },
+      readings: { type: Array },
+      quizzes: { type: Array },
       month: { type: String },
       testText: { type: String},
     };
@@ -23,11 +26,14 @@ export class ContentList extends LitElement {
   constructor() {
     super();
     this.weeks = [];
+    this.videos = [];
+    this.readings = [];
+    this.quizzes = [];
     this.counter = 0;
     this.month = "April";
-    this.videosTitle = "Videos";
-    this.readingsTitle = "Readings";
-    this.quizzesTitle = "Quizzes";
+    this.videosTitle = "7 videos";
+    this.readingsTitle = "7 readings";
+    this.quizzesTitle = "7 quizzes";
     this.updateWeek();
   }
 
@@ -43,6 +49,11 @@ export class ContentList extends LitElement {
       })
       .then((data) => {
         this.weeks = data;
+
+        // added to test out
+        this.videos = data;
+        this.readings = data;
+        this.quizzes = data;
       });
     console.log(data);
   }
@@ -65,9 +76,11 @@ export class ContentList extends LitElement {
                   objectivesTotal="${week.objectives}"
                 >
                 <div slot="objectiveAccordian">
-                  <weekly-planner-objective objectiveTitle="${this.videosTitle}"></weekly-planner-objective>
+
+                  <weekly-planner-objective objectiveTitle="${this.week.videos.title}"></weekly-planner-objective>
                   <weekly-planner-objective objectiveTitle="${this.readingsTitle}"></weekly-planner-objective>
                   <weekly-planner-objective objectiveTitle="${this.quizzesTitle}"></weekly-planner-objective>
+
                 </div>
               </weekly-planner-element>
             `)}

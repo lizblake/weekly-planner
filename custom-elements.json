@@ -64,6 +64,36 @@
             },
             {
               "kind": "field",
+              "name": "videos",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]",
+              "privacy": "public",
+              "attribute": "videos"
+            },
+            {
+              "kind": "field",
+              "name": "readings",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]",
+              "privacy": "public",
+              "attribute": "readings"
+            },
+            {
+              "kind": "field",
+              "name": "quizzes",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]",
+              "privacy": "public",
+              "attribute": "quizzes"
+            },
+            {
+              "kind": "field",
               "name": "counter",
               "type": {
                 "text": "number"
@@ -82,11 +112,31 @@
             },
             {
               "kind": "field",
-              "name": "testText",
+              "name": "videosTitle",
               "type": {
                 "text": "string"
               },
-              "default": "\"TEST\"",
+              "default": "\"Videos\""
+            },
+            {
+              "kind": "field",
+              "name": "readingsTitle",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"Readings\""
+            },
+            {
+              "kind": "field",
+              "name": "quizzesTitle",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"Quizzes\""
+            },
+            {
+              "kind": "field",
+              "name": "testText",
               "privacy": "public",
               "attribute": "testText"
             }
@@ -95,6 +145,18 @@
             {
               "name": "weeks",
               "fieldName": "weeks"
+            },
+            {
+              "name": "videos",
+              "fieldName": "videos"
+            },
+            {
+              "name": "readings",
+              "fieldName": "readings"
+            },
+            {
+              "name": "quizzes",
+              "fieldName": "quizzes"
             },
             {
               "name": "month",
