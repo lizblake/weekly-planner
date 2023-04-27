@@ -14,22 +14,13 @@ export class ContentList extends LitElement {
 
   static get styles() {
     return css`
-      :host {
-        display: block;
-      }
-      .wrapper {
-        border: 2px solid black;
-        display: flex;
-      }
-      .item {
-        display: inline-flex;
-      }
     `;
   }
 
   constructor() {
     super();
     this.weeks = [];
+    this.counter = 0;
     this.month = "April";
     this.updateWeek();
   }
@@ -50,25 +41,24 @@ export class ContentList extends LitElement {
     console.log(data);
   }
 
+  __counter() {
+    this.counter += 1;
+    return this.counter; 
+  }
+
   render() {
     return html`
-      <h2>${this.month}</h2>
-      <div class="wrapper">
         ${this.weeks.map(
           (week) =>
             html`
-              <div class="item">
-                <weekly-planner-element
-                  weekCounter="${week.counter}"
+            <weekly-planner-element
+                  weekCounter="${this.__counter()}"
                   moduleTitle="${week.title}"
                   moduleDescription="${week.description}"
                   timeRemaining="${week.time}"
-                  objectivesTotal="${week.total}"
+                  objectivesTotal="${week.objectives}"
                 ></weekly-planner-element>
-              </div>
-            `
-        )}
-      </div>
+            `)}
     `;
   }
 }

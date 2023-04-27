@@ -49,6 +49,10 @@
               "name": "updateWeek"
             },
             {
+              "kind": "method",
+              "name": "__counter"
+            },
+            {
               "kind": "field",
               "name": "weeks",
               "type": {
@@ -57,6 +61,14 @@
               "default": "[]",
               "privacy": "public",
               "attribute": "weeks"
+            },
+            {
+              "kind": "field",
+              "name": "counter",
+              "type": {
+                "text": "number"
+              },
+              "default": "0"
             },
             {
               "kind": "field",

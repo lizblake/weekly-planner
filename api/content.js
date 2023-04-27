@@ -1,21 +1,21 @@
 export default async function handler(request, res) {
     var content = [
         {
-            "counter": "1",
+            "counter": "",
             "title": "Introduction",
             "description": "Why take this course?",
             "time" : "2 hours to complete",
             "objectives" : "4 videos (Total 13 min), 11 readings"
         },
         {
-            "counter": "2",
+            "counter": "",
             "title": "Misconceptions About Happiness",
             "description": "What do we think will make us happy?",
             "time" : "2 hours to complete",
             "objectives" : "7 videos (Total 63 min), 3 readings, 1 quiz"
         },
         {
-            "counter": "3",
+            "counter": "",
             "title": "Why Our Expectations are so Bad",
             "description": "Why do we mispredict what makes us happy?",
             "time" : "2 hours to complete",
