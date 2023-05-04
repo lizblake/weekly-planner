@@ -136,12 +136,22 @@
             },
             {
               "kind": "field",
+              "name": "",
+              "privacy": "public",
+              "attribute": ""
+            },
+            {
+              "kind": "field",
               "name": "testText",
               "privacy": "public",
               "attribute": "testText"
             }
           ],
           "attributes": [
+            {
+              "name": "",
+              "fieldName": ""
+            },
             {
               "name": "weeks",
               "fieldName": "weeks"
@@ -165,6 +175,12 @@
             {
               "name": "testText",
               "fieldName": "testText"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "IntersectionObserverMixin",
+              "package": "@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js"
             }
           ],
           "superclass": {
@@ -414,7 +430,7 @@
               "type": {
                 "text": "string"
               },
-              "default": "\"Why Take Yale's Most Popular Course? 11m\"",
+              "default": "\"\"",
               "privacy": "public",
               "attribute": "objectiveDetails"
             }

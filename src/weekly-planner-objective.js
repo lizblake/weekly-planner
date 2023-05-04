@@ -53,7 +53,7 @@ class WeeklyPlannerObjective extends LitElement {
     this.objectiveTitle = "7 videos";
     this.objectiveIcon = "perm-identity";
     this.objectiveIconColor = "blue";
-    this.objectiveDetails = "Why Take Yale's Most Popular Course? 11m";
+    this.objectiveDetails = "";
   }
 
   render() {
