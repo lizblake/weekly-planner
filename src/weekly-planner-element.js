@@ -21,6 +21,11 @@ class WeeklyPlannerElement extends LitElement {
 
     //Toggle collapse label
     toggleText: { type: String },
+
+    //arrays
+    videos: { type: Array },
+    readings: { type: Array},
+    quizzes: { type: Array}
   };
 
   static styles = css`
@@ -212,6 +217,7 @@ class WeeklyPlannerElement extends LitElement {
 
             <slot name="objectiveAccordian"></slot>
              <!-- inside a11y-collapse -->
+             <weekly-planner-objective .videos=${this.videos} .readings=${this.readings} .quizzes=${this.quizzes}></weekly-planner-objective>
            
           </a11y-collapse>
         </div>
